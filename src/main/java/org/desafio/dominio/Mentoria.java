@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-public class Mentoria extends InformacoesComuns{
+public class Mentoria extends Conteudos {
 
    private LocalDate data;
 
@@ -20,5 +20,10 @@ public class Mentoria extends InformacoesComuns{
                 "\n , titulo:'" + titulo + '\'' +
                 "\n , descricao:'" + descricao + '\'' +
                 '}';
+    }
+
+    @Override
+    public double calcularXp() {
+        return XP_PADRAO +20;
     }
 }

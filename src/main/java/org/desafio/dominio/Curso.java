@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Curso extends InformacoesComuns {
+public class Curso extends Conteudos {
 
     private int cargaHoraria;
 
@@ -18,5 +18,10 @@ public class Curso extends InformacoesComuns {
                 "\n , Título: '" + titulo + '\'' +
                 "\n , Descrição: '" + descricao + '\'' +
                 '}';
+    }
+
+    @Override
+    public double calcularXp() {
+        return XP_PADRAO * cargaHoraria;
     }
 }
