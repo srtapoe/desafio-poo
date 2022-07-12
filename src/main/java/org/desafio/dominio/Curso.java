@@ -8,6 +8,7 @@ import lombok.Setter;
 public class Curso extends Conteudos {
 
     private int cargaHoraria;
+    private NivelConteudo nivelConteudo;
 
     public Curso(){}
 

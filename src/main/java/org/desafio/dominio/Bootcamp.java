@@ -19,6 +19,9 @@ public class Bootcamp {
     private final LocalDate dataFinal = dataInicial.plusDays(45);
     private Set<Dev> devsNoBootcamp = new HashSet<>();
     private Set<Conteudos> conteudosBootcamp = new LinkedHashSet<>();
+    private NivelConteudo nivelConteudo;
+
+
 
 
     @Override
