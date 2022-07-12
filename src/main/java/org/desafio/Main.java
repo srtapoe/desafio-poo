@@ -1,6 +1,8 @@
 package org.desafio;
 
+import org.desafio.dominio.Bootcamp;
 import org.desafio.dominio.Curso;
+import org.desafio.dominio.Dev;
 import org.desafio.dominio.Mentoria;
 
 import java.time.LocalDate;
@@ -16,11 +18,11 @@ public class Main {
 
 
         Curso curso2 = new Curso();
-        curso2.setTitulo("Kotlin para iniciantes");
-        curso2.setDescricao("Curso com objetivo de apresentar a linguagem Kotlin para iniciantes");
+        curso2.setTitulo("Estruturas de dados em Java");
+        curso2.setDescricao("Curso com objetivo de apresentar as principais estruturas de dados usadas no Java");
         curso2.setCargaHoraria(10);
 
-
+/*
         ArrayList<Curso> cursos = new ArrayList<>();
         cursos.add(curso1);
         cursos.add(curso2);
@@ -29,12 +31,43 @@ public class Main {
             System.out.println(courses);
         }
 
-        System.out.println("=========================================================");
+*/
+
+
 
         Mentoria mentoria = new Mentoria();
         mentoria.setTitulo("Java");
         mentoria.setDescricao("Aprendendo Lambdas");
         mentoria.setData(LocalDate.now());
+
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Santander Coder Girls");
+        bootcamp.setDescricao("Java for girls");
+        bootcamp.getConteudosBootcamp().add(curso1);
+        bootcamp.getConteudosBootcamp().add(curso2);
+        bootcamp.getConteudosBootcamp().add(mentoria);
+
+        System.out.println("=========================================================");
+        Dev dev1 = new Dev();
+        dev1.setNome("Ted Mosby");
+        dev1.inscreverBootcamp(bootcamp);
+        dev1.progredir();
+
+
+        System.out.println("=========================================================");
+        Dev dev2 = new Dev();
+        dev2.setNome("Barney Stinson");
+        dev2.inscreverBootcamp(bootcamp);
+        dev2.progredir();
+
+
+        ArrayList<Dev> devs = new ArrayList<>();
+        devs.add(dev1);
+        devs.add(dev2);
+
+        for (Dev dev : devs){
+            System.out.println(dev);
+        }
 
 
     }

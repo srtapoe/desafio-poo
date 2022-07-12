@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import java.util.LinkedHashSet;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 @Getter
@@ -15,11 +16,30 @@ public class Dev {
     private Set<Conteudos> conteudosInscritos = new LinkedHashSet<>();
     private Set<Conteudos> conteudosConcluidos = new LinkedHashSet<>();
 
-    public void inscreverBootcamp(Bootcamp bootcamp){}
+    public void inscreverBootcamp(Bootcamp bootcamp){
+        this.conteudosInscritos.addAll(bootcamp.getConteudosBootcamp());
+        bootcamp.getDevsNoBootcamp().add(this);
+    }
 
-    public void progredir(){}
+    public void progredir(){
+        Optional<Conteudos> conteudo = this.conteudosInscritos
+                .stream()
+                .findFirst();
+        if(conteudo.isPresent()){
+            this.conteudosConcluidos.add(conteudo.get());
+            this.conteudosInscritos.remove(conteudo.get());
+        }else{
+            System.out.println("Você não está inscrito em nenhum curso!");
+        }
 
-    public void calcularTotalXp(){}
+    }
+
+    public double calcularTotalXp(){
+        return this.conteudosConcluidos
+                .stream()
+                .mapToDouble(Conteudos::calcularXp)
+                        .sum();
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -32,5 +52,14 @@ public class Dev {
     @Override
     public int hashCode() {
         return Objects.hash(nome, conteudosInscritos, conteudosConcluidos);
+    }
+
+    @Override
+    public String toString() {
+        return "Dev{\n" +
+                "Nome: '" + nome + '\'' + "\n" +
+                " ,Inscrito em: " + conteudosInscritos + "\n" +
+                ", Concluídos: " + conteudosConcluidos +
+                '}';
     }
 }
