@@ -59,6 +59,7 @@ public class Main {
         dev2.setNome("Barney Stinson");
         dev2.inscreverBootcamp(bootcamp);
         dev2.progredir();
+        dev2.progredir();
 
 
         ArrayList<Dev> devs = new ArrayList<>();

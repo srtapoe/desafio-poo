@@ -59,7 +59,7 @@ public class Dev {
         return "Dev{\n" +
                 "Nome: '" + nome + '\'' + "\n" +
                 " ,Inscrito em: " + conteudosInscritos + "\n" +
-                ", Concluídos: " + conteudosConcluidos +
-                '}';
+                ", Concluídos: " + conteudosConcluidos + "\n" +
+               ", Total de XP: " +  calcularTotalXp() + '}';
     }
 }
